@@ -1,0 +1,231 @@
+body {
+    font-family: 'Dancing Script', cursive;
+    background-color: #ffe6f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.heart {
+    width: 50px;
+    height: 50px;
+    background-color: #ff6699;
+    position: relative;
+    transform: rotate(-45deg);
+    animation: pulse 1s infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #ff6699;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -25px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 25px;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1) rotate(-45deg);
+    }
+    50% {
+        transform: scale(1.1) rotate(-45deg);
+    }
+}
+
+.envelope {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background-color: #ff99cc;
+    margin: auto;
+    cursor: pointer;
+}
+
+.envelope-cover {
+    position: absolute;
+    width: 300px;
+    height: 100px;
+    background-color: #ff99cc;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+}
+
+.envelope-flap {
+    position: absolute;
+    top: 0px; /* Ajuster selon l'apparence souhaitée */
+    left: 0;
+    right: 0;
+    height: 0;
+    border-left: 150px solid transparent; /* Création du triangle */
+    border-right: 150px solid transparent; /* Création du triangle */
+    border-top: 110px solid #ff66b3; /* Couleur du rabat */
+}
+
+.envelope-letter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    width: 250px;
+    height: 150px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 18px;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.pig-gif {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 10px;
+}
+
+.click-to-open {
+    text-align: center;
+    margin-top: 20px;
+    color: #ff6699;
+}
+
+.buttons {
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-family: 'Dancing Script', cursive;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff6699;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff3366;
+}
+
+#noBtn {
+    position: relative;
+    transition: 0.3s;
+}
+
+#additional-text {
+    text-align: center;
+    font-size: 25px; /* Ajuste la taille de la police selon tes préférences */
+    margin-top: 20px; /* Espace au-dessus du texte */
+    color: #ff66b3; /* Couleur du texte */
+    transition: opacity 0.5s; /* Transition douce pour l'apparition/disparition */
+}
+
+#congratulation-message {
+    text-align: center; /* Centrer le texte */
+    margin-top: 20px; /* Marge pour espacer du reste */
+}
+
+.congratulations-gif {
+    width: 200px;
+    height: 200px;; /* Ajuste la taille du GIF */
+}
+
+#restaurant-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alignement à gauche */
+    gap: 10px; /* Espacement entre chaque élément */
+    width: 300px; /* Largeur fixe pour le formulaire */
+    margin: 0 auto; /* Centrer le formulaire */
+}
+
+#restaurant-form label, 
+#restaurant-form input {
+    width: 100%; /* Chaque champ et étiquette occupe 100% de la largeur */
+    box-sizing: border-box; /* Inclure le padding et la bordure dans la largeur */
+}
+
+#restaurant-form input {
+    padding: 8px; /* Un peu de padding pour les champs de texte */
+    border: 1px solid #ccc; /* Bordure légère pour les champs */
+    border-radius: 5px; /* Bordure arrondie */
+}
+
+#restaurant-form button {
+    padding: 10px 20px; /* Espace autour du texte du bouton */
+    background-color: #ff6699;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px; /* Espacement au-dessus du bouton */
+    width: 100%; /* Largeur du bouton alignée avec le formulaire */
+}
+
+#restaurant-form button:hover {
+    background-color: #ff3366; /* Couleur de fond au survol */
+}
+
+#preparation-message {
+    margin-top: 50px;
+    text-align: center;
+    color: #ff6699;
+    font-family: 'Dancing Script', cursive;
+}
+
+.confetti_explosion, .heart_explosion {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    animation: fly 2s ease-in-out forwards;
+    opacity: 0;
+}
+
+.confetti_explosion {
+    background-color: #ff6699;
+    border-radius: 50%;
+    animation-name: confetti-animation;
+}
+
+.heart_explosion {
+    background-color: #ff3366;
+    clip-path: polygon(50% 0%, 100% 30%, 100% 80%, 50% 100%, 0% 80%, 0% 30%);
+    animation-name: heart-animation;
+}
+
+@keyframes confetti-animation {
+    0% { transform: translate(0, 0) rotate(0); opacity: 1; }
+    100% { transform: translate(300px, 600px) rotate(720deg); opacity: 0; }
+}
+
+@keyframes heart-animation {
+    0% { transform: translate(0, 0); opacity: 1; }
+    100% { transform: translate(-300px, 600px) scale(0.5); opacity: 0; }
+}
