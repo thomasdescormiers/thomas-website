@@ -33,48 +33,49 @@ document.getElementById('yesBtn').addEventListener('click', function() {
 
     // Cacher le message après 2 secondes
     setTimeout(function() {
-        document.getElementById('congratulation-message').style.display = 'none';
-        document.getElementById('restaurant-form').style.display = 'block'; // Afficher le formulaire
+        //document.getElementById('congratulation-message').style.display = 'none';
+        document.getElementById('.envelope-cover').style.display = 'none';
+        // document.getElementById('restaurant-form').style.display = 'block'; // Afficher le formulaire
     }, 3000); // 3 secondes
 });
 
-function sendMail() {  
-    // Récupérer les valeurs des champs
-    let restaurantName = document.getElementById('restaurant-choice').value.trim();
-    let dateChoice = document.getElementById('date-choice').value.trim();
-    let timeChoice = document.getElementById('time-choice').value.trim();
+// function sendMail() {  
+//     // Récupérer les valeurs des champs
+//     let restaurantName = document.getElementById('restaurant-choice').value.trim();
+//     let dateChoice = document.getElementById('date-choice').value.trim();
+//     let timeChoice = document.getElementById('time-choice').value.trim();
 
-    // Vérifier que tous les champs sont remplis
-    if (restaurantName === "" || dateChoice === "" || timeChoice === "") {
-        alert("All fields (restaurant, date, and time) must be filled mothafuckaaaa!");
-        return; // Arrêter l'exécution de la fonction si l'un des champs est vide
-    }
+//     // Vérifier que tous les champs sont remplis
+//     if (restaurantName === "" || dateChoice === "" || timeChoice === "") {
+//         alert("All fields (restaurant, date, and time) must be filled mothafuckaaaa!");
+//         return; // Arrêter l'exécution de la fonction si l'un des champs est vide
+//     }
 
-    // Paramètres pour l'envoi de l'e-mail
-    let parms =  {
-        restaurant: restaurantName,
-        date: dateChoice,      // Ajouter la date au template
-        time: timeChoice       // Ajouter l'heure au template
-    };
+//     // Paramètres pour l'envoi de l'e-mail
+//     let parms =  {
+//         restaurant: restaurantName,
+//         date: dateChoice,      // Ajouter la date au template
+//         time: timeChoice       // Ajouter l'heure au template
+//     };
 
-    // Envoyer l'e-mail via EmailJS
-    emailjs.send("service_8ze7lc8", "template_hw40b8v", parms)
-        .then(function(response) {
-            alert("Email with your choice was sent successfully to your Choco!");
+//     // Envoyer l'e-mail via EmailJS
+//     emailjs.send("service_8ze7lc8", "template_hw40b8v", parms)
+//         .then(function(response) {
+//             alert("Email with your choice was sent successfully to your Choco!");
             
-            // Masquer les éléments visuels actuels
-            document.getElementById('invitation').style.display = 'none';
-            document.getElementById('restaurant-form').style.display = 'none';
+//             // Masquer les éléments visuels actuels
+//             document.getElementById('invitation').style.display = 'none';
+//             document.getElementById('restaurant-form').style.display = 'none';
                         
-            // Afficher le nouveau message et le GIF
-            showPreparationMessage();
+//             // Afficher le nouveau message et le GIF
+//             showPreparationMessage();
             
             
             
-        }, function(error) {
-            alert("Failed to send email. Please try again."); // Message d'erreur en cas d'échec
-        });
-}
+//         }, function(error) {
+//             alert("Failed to send email. Please try again."); // Message d'erreur en cas d'échec
+//         });
+// }
 
 // Fonction pour afficher le message "Prépare toi" et le GIF
 function showPreparationMessage() {
